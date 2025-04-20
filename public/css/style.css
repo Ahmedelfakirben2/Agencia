@@ -1,0 +1,1477 @@
+/* Estilos para botones de lujo */
+.btn-oferta, 
+.btn-success, 
+.btn-quick-access.btn-highlight,
+.btn-reservar {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 3px 10px rgba(255, 204, 51, 0.3);
+}
+
+.btn-reservar,
+.btn-quick-access.btn-cta {
+    background: linear-gradient(45deg, #E6B800, var(--secondary-color));
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(255, 204, 51, 0.5);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}/* Estilos para botones de lujo */
+/* Estilos de brillo para precios */
+.card-viaje .precio,
+.precio-oferta,
+.viaje-detalle .precio-grande {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-shadow: 0 0 2px rgba(255, 204, 51, 0.3);
+}
+
+.card-viaje .precio::after,
+.precio-oferta::after,
+.viaje-detalle .precio-grande::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.8), 
+                transparent);
+    animation: shimmer 2.5s infinite;
+}
+/* Indicador de scroll */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--header-gradient-start), var(--secondary-color));
+    z-index: 1001;
+    transition: width 0.1s ease;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    padding: 1rem 0;
+    background-color: var(--light-gray);
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    box-shadow: var(--card-shadow);
+}
+
+.breadcrumbs a {
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--header-gradient-start);
+}
+
+.breadcrumbs i {
+    color: var(--dark-gray);
+    font-size: 0.7rem;
+    margin: 0 0.5rem;
+}
+
+.breadcrumbs .current {
+    color: var(--header-gradient-start);
+    font-weight: 600;
+}:root {
+    --primary-color: #15B9D5;
+    --secondary-color: #FFCC33; /* Dorado - usado para elementos destacados */
+    --accent-color: #FFB900;
+    --header-gradient-start: #0e3a87; /* Azul oscuro para el inicio del gradiente del header */
+    --header-gradient-end: #15B9D5; /* Color del final del gradiente del header */
+    --text-color: #333333;
+    --light-gray: #f5f5f5;
+    --dark-gray: #666666;
+    --white: #ffffff;
+    --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3 {
+    font-family: 'Staatliches', cursive;
+    color: var(--header-gradient-start);
+}
+h1 {
+    font-size: 3.4rem;
+}
+h2 {
+    font-size: 2.0rem;
+}
+h3 {
+    font-size: 3rem;
+}
+
+.btn {
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(30, 30);
+        opacity: 0;
+    }
+}
+
+.btn-success {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    font-size: 1rem;
+}
+
+.btn-success:hover {
+    background-color: #E6B800; /* Dorado más oscuro */
+    border-color: #E6B800;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 204, 51, 0.5);
+}
+
+.btn-success:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(255, 215, 0, 0.4);
+}
+
+.btn-outline-primary {
+    color: var(--header-gradient-start);
+    border-color: var(--header-gradient-start);
+    background-color: transparent;
+    padding: 0.8rem 2rem;
+    border-radius: .5rem;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--header-gradient-start);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(14, 58, 135, 0.4);
+}
+.slider {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img//superior.jpg);
+    min-height: 600px;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(14, 58, 135, 0.5) 0%, rgba(255, 204, 51, 0.5) 100%);
+    z-index: 1;
+}
+
+.slider-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.slider-title {
+    color: white;
+    font-size: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.slider-subtitle {
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.95);
+    display: block;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 0.8s ease-out forwards;
+    margin-bottom: 1rem;
+}
+
+.slider-description {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1.6s ease-out forwards;
+    line-height: 1.5;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botones de acceso rápido */
+.quick-access-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    z-index: 10;
+    position: relative;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.btn-quick-access {
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-quick-access i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.btn-quick-access:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.btn-quick-access.btn-highlight {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-quick-access.btn-highlight:hover {
+    background-color: #e0bb00;
+    border-color: #e0bb00;
+}
+
+.btn-quick-access.btn-cta {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    min-width: 250px;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+    box-shadow: 0 5px 25px rgba(255, 204, 51, 0.5);
+}
+
+.btn-quick-access.btn-cta:hover {
+    animation: none;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 204, 51, 0.6);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 5px 25px rgba(255, 204, 51, 0.5); }
+    50% { box-shadow: 0 5px 30px rgba(255, 204, 51, 0.8); }
+    100% { box-shadow: 0 5px 25px rgba(255, 204, 51, 0.5); }
+}
+
+.btn-quick-access.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: auto;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.card-viaje .btn-quick-access {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.card-viaje .btn-quick-access:hover {
+    background-color: #0fa5bd;
+    border-color: #0fa5bd;
+}
+
+/* Botón en sección Nosotros */
+.detalles-section .btn-quick-access {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    margin-top: 1.5rem;
+}
+
+.detalles-section .btn-quick-access:hover {
+    background-color: #0fa5bd;
+    border-color: #0fa5bd;
+    box-shadow: 0 5px 15px rgba(21, 185, 213, 0.4);
+}
+
+@media (max-width: 768px) {
+    .quick-access-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 2rem;
+        margin-top: 2rem;
+    }
+    
+    .btn-quick-access {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-quick-access.btn-cta {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .slider-title {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+    
+    .slider-subtitle {
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    .slider-description {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+}
+@media (min-width:768px) {
+    .slider em {
+        font-size: 8rem;
+    }
+}
+.home {
+    position: relative;
+}
+.home .navegacion {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.nav-link.active {
+    border-bottom: 5px solid white;
+}
+blockquote {
+    font-weight: bold;
+    line-height: 2;
+}
+p {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+}
+/* Menú header */
+.navegacion {
+    background: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-end));
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+    animation: slideDown 0.4s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.logo-link {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
+/* Posicionamiento del menú de navegación centrado */
+.header-nav-centered {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2.5rem;
+    justify-content: center;
+    padding: 0.5rem 0;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+header .nav .header-link {
+    font-family: 'Staatliches', cursive;
+    font-size: 1.6rem;
+    color: white !important;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.6rem 1.2rem;
+    margin: 0 0.2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+header .nav .header-link:hover,
+header .nav .header-link.active {
+    color: white !important;
+    background: linear-gradient(135deg, var(--header-gradient-start), var(--secondary-color));
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .nav .header-link::after {
+    display: none;
+}
+
+header .nav .header-link i {
+    color: white !important;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-right: 0.4rem;
+}
+
+
+
+@media (max-width: 992px) {
+    .header-nav-centered {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+    
+    header .nav .header-link {
+        font-size: 1.4rem;
+        padding: 0.5rem 0.8rem;
+        margin: 0 0.1rem;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-end));
+    color: white;
+    position: relative;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer h3 {
+    font-family: 'Staatliches', cursive;
+    color: white;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+footer h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+footer h5 {
+    color: white;
+    font-size: 1.2rem;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+footer .footer-links li {
+    transition: all 0.3s ease;
+}
+
+footer .footer-links li:hover {
+    transform: translateX(5px);
+}
+
+footer .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+footer .social-icon:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+footer i {
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+footer .input-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+}
+
+footer .input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    background-color: var(--secondary-color);
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.listado-iconos {
+    background-color: rgb(245, 245, 245);
+}
+.listado-iconos img {
+    height: 100px;
+}
+
+
+.descuento {
+    height: 400px;
+    background-image: linear-gradient( rgba(0, 0, 0, .5) 0%,  rgba(0, 0, 0, .5) 100%),  url(../img/cupon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (min-width:768px) {
+    .descuento {
+        height: 400px;
+        background-image:  linear-gradient(
+            to right, 
+            rgba(0, 0, 0, .5) 0%, 
+            rgba(0, 0, 0, .5) 50%, 
+            transparent 50%, 
+            transparent 100%
+        ), url(../img/cupon.jpg);
+    }
+}
+.descuento .contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    color: white;
+}
+.descuento p {
+    font-family: 'Staatliches', cursive;
+    line-height: .8;
+}
+.descuento .titulo {
+    color: white;
+    font-size: 2.4rem;
+}
+
+.descuento .fecha {
+    color: white;
+}
+
+.descuento .precio {
+    color: var(--secondary-color);
+    font-size: 3rem;
+}
+
+.proximos-viajes p {
+    font-size: .9rem;
+}
+i {
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+/* Asegurando que los iconos de la navegación sean blancos */
+header .navegacion i,
+footer i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.testimoniales p{
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.6;
+    color: #444;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+.testimoniales p::before {
+    background-image: url(../img/quote.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px;
+    content: '';
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+.blockquote-footer {
+    text-align: right;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+span {
+    color: var(--secondary-color);
+    font-weight: bolder;
+}
+
+/* Animaciones y efectos visuales */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.btn-success:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Efectos visuales adicionales */
+.page-header {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--header-gradient-start), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* Estilos mejorados para testimoniales */
+.testimonial-content {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--light-gray);
+}
+
+.testimonial-content::before {
+    content: '\201C';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 4rem;
+    color: var(--header-gradient-start);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-text {
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+}
+
+.testimonial-author {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--dark-gray);
+}
+
+.testimonial-email {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+/* Efectos de hover globales */
+a {
+    transition: all var(--transition-speed) ease;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}
+
+/* Estilo para validación de formularios */
+.was-validated .form-control:valid {
+    border-color: #28a745;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Estilos para secciones generales */
+.section-header {
+    margin-bottom: 2.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Estilos para ofertas */
+.ofertas-section {
+    padding: 3rem 1rem;
+    border-radius: 15px;
+    background-color: var(--light-gray);
+    margin-bottom: 3rem;
+    box-shadow: var(--card-shadow);
+}
+
+.ofertas-carousel {
+    margin: 2rem 0;
+}
+
+.oferta-slide {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    margin: 0.5rem;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.oferta-slide:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.oferta-imagen {
+    overflow: hidden;
+    height: 220px;
+    position: relative;
+}
+
+.oferta-badge {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    z-index: 2;
+}
+
+.oferta-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.oferta-slide:hover .oferta-imagen img {
+    transform: scale(1.1);
+}
+
+.oferta-content {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.oferta-titulo {
+    font-family: 'Staatliches', cursive;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--header-gradient-start);
+}
+
+.oferta-descripcion {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.oferta-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.oferta-precios {
+    margin-bottom: 1rem;
+}
+
+.precio-original {
+    text-decoration: line-through;
+    color: var(--dark-gray);
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+.precio-oferta {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.btn-oferta {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.btn-oferta:hover {
+    background-color: #E6B800;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 204, 51, 0.5);
+    color: white;
+}
+
+.btn-ver-mas {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-ver-mas:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(21, 185, 213, 0.4);
+}
+
+/* Estilos para la página de ofertas */
+.ofertas-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .ofertas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .ofertas-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.oferta-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.oferta-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.oferta-card .oferta-imagen {
+    height: 250px;
+}
+
+.oferta-card .oferta-content {
+    padding: 1.5rem;
+}
+
+/* Estilos para tarjetas de viajes */
+.viajes-section {
+    padding: 1rem 0 3rem 0;
+}
+
+.card-viaje {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed) ease;
+    margin-bottom: 2rem;
+    border: none;
+    background-color: var(--white);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-viaje:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-viaje-imagen {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+}
+
+.card-viaje .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed) ease;
+}
+
+.card-viaje:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+.disponibilidad-badge {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 2;
+}
+
+.card-viaje .card-body {
+    padding: 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-viaje .card-title {
+    font-family: 'Staatliches', cursive;
+    color: var(--header-gradient-start);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-viaje .card-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: var(--dark-gray);
+}
+
+.card-viaje .card-info i {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin-right: 0.8rem;
+}
+
+.card-viaje .card-text {
+    color: var(--dark-gray);
+    margin: 0.8rem 0 1.2rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.card-viaje .precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 1.2rem;
+    margin-top: auto;
+}
+
+.card-viaje .card-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.card-viaje .card-info i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.card-viaje .precio {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 1rem 0;
+}
+
+.card-viaje .disponibles {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+}
+
+.card-viaje .btn-detalles {
+    width: 100%;
+    padding: 0.8rem;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    transition: all var(--transition-speed) ease;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card-viaje .btn-detalles:hover {
+    background-color: #0fa5bd;
+    box-shadow: 0 5px 15px rgba(21, 185, 213, 0.4);
+}
+
+/* Estilos para formularios */
+.form-control {
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    transition: all var(--transition-speed) ease;
+    box-shadow: none;
+    background-color: #fafafa;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 204, 51, 0.25);
+    background-color: white;
+}
+
+.form-label {
+    color: var(--dark-gray);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control::placeholder {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+}
+
+/* Estilos para la sección de detalle de viaje */
+.viaje-detalle {
+    padding: 2rem 0;
+}
+
+.viaje-detalle h1 {
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.viaje-detalle h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 4px;
+    background-color: var(--secondary-color);
+}
+
+.viaje-detalle .imagen-principal {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+.viaje-detalle .imagen-principal img {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para Quiénes Somos */
+.about-section {
+    position: relative;
+    padding: 4rem 0;
+    background-color: var(--light-gray);
+    border-radius: 15px;
+}
+
+.about-image-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.about-image-container .main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+
+.about-image-container:hover .main-image {
+    transform: scale(1.05);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: rotate(10deg);
+    transition: all 0.3s ease;
+}
+
+.experience-badge:hover {
+    transform: rotate(0deg) scale(1.1);
+}
+
+.experience-badge .number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.experience-badge .text {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.about-content {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+}
+
+.about-subtitle {
+    color: var(--header-gradient-start);
+    font-family: 'Staatliches', cursive;
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.about-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+}
+
+.brand-highlight {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.features-container {
+    margin-top: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+    background-color: var(--light-gray);
+    padding: 1.2rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    margin-right: 1rem;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(21, 185, 213, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-icon i {
+    color: var(--header-gradient-start);
+    font-size: 1.5rem;
+}
+
+.feature-text {
+    flex-grow: 1;
+}
+
+.feature-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--header-gradient-start);
+    margin-bottom: 0.5rem;
+}
+
+.cta-container {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.cta-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.viaje-detalle .detalles-section {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.viaje-detalle h4 {
+    color: var(--header-gradient-start);
+    margin-bottom: 1rem;
+    font-family: 'Staatliches', cursive;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+.viaje-detalle .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.viaje-detalle .info-item i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+.viaje-detalle .precio-grande {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
+
+.viaje-detalle .reserva-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.viaje-detalle .btn-reservar {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    width: 100%;
+}

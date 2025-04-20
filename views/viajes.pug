@@ -1,0 +1,71 @@
+extends ./layout/index
+
+block contenido
+
+    main.container.mt-5.page-container
+      h1.mt-5.text-center.mb-5.page-header.fade-in= pagina
+      
+      .row
+        // Columna principal con viajes
+        .col-lg-9.pattern-bg
+          .row
+            - for (let i = 0; i < viajes.length; i++)
+              - const viaje = viajes[i]
+              .col-md-6.mb-4
+                .card-viaje.fade-in
+                  if viaje.imagenes && viaje.imagenes.length > 0
+                    img.card-img-top(src=viaje.imagenes[0], alt=`Imagen de ${viaje.titulo}`)
+                  else
+                    img.card-img-top(src="/img/destinos/default.jpg", alt="Imagen por defecto")
+                  .card-body
+                    h5.card-title= viaje.titulo
+                    p.card-text= `${viaje.descripcion.substr(0, 100)}...`
+                    
+                    .card-info
+                      i.fas.fa-calendar-alt
+                      span #{new Date(viaje.fecha_ida).toLocaleDateString()} - #{new Date(viaje.fecha_vuelta).toLocaleDateString()}
+                    
+                    .card-info
+                      i.fas.fa-money-bill-wave
+                      span.precio Precio: #{viaje.precio} DH
+                    
+                    .card-info
+                      i.fas.fa-users
+                      span.disponibles Disponibles: #{viaje.disponibles}
+                    
+                    a.btn-quick-access.btn-sm(href=`/viajes/${viaje.slug}`)
+                      i.fas.fa-eye.me-2
+                      | Ver detalles
+            - if (viajes.length === 0)
+              .col-12
+                .alert.alert-info.text-center.p-5
+                  i.fas.fa-info-circle.me-2.fa-2x
+                  p.m-0 No hay viajes disponibles actualmente.
+        
+        // Columna lateral con ofertas especiales
+        .col-lg-3
+          .sidebar-ofertas.fade-in
+            h3.sidebar-title 
+              i.fas.fa-tag.me-2
+              | Ofertas Especiales
+            
+            if ofertas && ofertas.length > 0
+              - for (let i = 0; i < ofertas.length; i++)
+                - const oferta = ofertas[i]
+                .oferta-sidebar.mb-4
+                  if oferta.imagen
+                    .oferta-imagen-sidebar
+                      img(src=oferta.imagen, alt='Oferta especial')
+                  .oferta-content-sidebar
+                    p.oferta-texto-sidebar= oferta.anuncio
+                    a.btn-oferta-sidebar(href='/viajes')
+                      i.fas.fa-ticket-alt.me-2
+                      | Reservar Ahora
+            else
+              p.text-center No hay ofertas disponibles.
+            
+            .sidebar-more-link
+              a.btn-ver-mas(href='/ofertas') Ver todas las ofertas
+      
+      //- Incluir el bloque de viajes si es necesario (ya se muestra la lista arriba)
+      //- include ./layout/bloque_viajes

@@ -1,0 +1,23 @@
+if ofertasGlobales && ofertasGlobales.length > 0
+    .mini-oferta-container
+        .mini-oferta-banner
+            .container
+                .row.align-items-center
+                    .col-lg-2.d-none.d-lg-block.col-banner-image
+                        .banner-icon
+                            i.fas.fa-gift
+                    .col-lg-6.col-md-8
+                        .banner-content
+                            h4.mini-oferta-titulo
+                                i.fas.fa-tag.me-2
+                                | Ofertas Especiales
+                            if ofertasGlobales.length > 0
+                                p.mini-oferta-texto= ofertasGlobales[0].anuncio
+                                if ofertasGlobales[0].precio
+                                    span.mini-oferta-precio= ofertasGlobales[0].precio
+                            else
+                                p.mini-oferta-texto ¡Descubre nuestras mejores ofertas y promociones exclusivas para tu próximo viaje!
+                    .col-lg-4.col-md-4.text-md-end
+                        a.btn-mini-oferta(href="/ofertas")
+                            i.fas.fa-arrow-right.me-2
+                            | Ver todas las ofertas

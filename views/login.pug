@@ -1,0 +1,40 @@
+pug
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Iniciar Sesión
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/login.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css')
+  body
+    .login-container
+      .logo-container
+        img.logo(src='/img/logo.svg', alt='Logo VPO')
+      h1.login-heading Iniciar Sesión
+
+      // Mostrar mensaje de error si existe
+      if error
+        .error-message
+          i.fas.fa-exclamation-circle.me-2
+          | #{error}
+
+      form(action='/login', method='post')
+        .form-group
+          label(for='email')
+            i.fas.fa-envelope.me-2
+            | Email:
+          input.form-control(type='email', id='email', name='email', required, placeholder='Ingresa tu email')
+        .form-group
+          label(for='password')
+            i.fas.fa-lock.me-2
+            | Contraseña:
+          input.form-control(type='password', id='password', name='password', required, placeholder='Ingresa tu contraseña')
+        button.btn-login(type='submit')
+          i.fas.fa-sign-in-alt.me-2
+          | Iniciar Sesión
+      
+      .login-footer
+        p &copy; #{new Date().getFullYear()} VPO - Viaje Para Olvidar

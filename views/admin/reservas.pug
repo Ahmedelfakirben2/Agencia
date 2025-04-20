@@ -1,0 +1,107 @@
+extends layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        .row
+            .col-md-12
+                if reservas && reservas.length > 0
+                    .table-responsive
+                        table.table.table-striped.table-hover
+                            thead.bg-dark.text-white
+                                tr
+                                    th Viaje
+                                    th Nombre
+                                    th Email
+                                    th Teléfono
+                                    th Fecha Reserva
+                                    th Personas
+                                    th Acciones
+                            tbody
+                                each reserva in reservas
+                                    tr
+                                        td
+                                            if reserva.viaje
+                                                strong= reserva.viaje.titulo
+                                            else
+                                                span.text-muted Viaje no disponible
+                                        td= reserva.nombre
+                                        td= reserva.email
+                                        td= reserva.telefono
+                                        td
+                                            - const fecha = new Date(reserva.fecha_reserva)
+                                            span= fecha.toLocaleDateString()
+                                            br
+                                            small.text-muted= fecha.toLocaleTimeString()
+                                        td.text-center= reserva.numero_personas
+                                        td
+                                            button.btn.btn-danger.btn-sm.me-2(type="button" onclick=`confirmarEliminar(${reserva.id}, '${reserva.nombre}')`) 
+                                                i.fas.fa-trash-alt.me-1
+                                                | Eliminar
+                                            button.btn.btn-info.btn-sm(type="button" data-bs-toggle="modal" data-bs-target=`#detalleReserva${reserva.id}`) 
+                                                i.fas.fa-eye.me-1
+                                                | Detalles
+                                    
+                                    // Modal para mostrar detalles
+                                    .modal.fade(id=`detalleReserva${reserva.id}` tabindex="-1")
+                                        .modal-dialog
+                                            .modal-content
+                                                .modal-header.bg-primary.text-white
+                                                    h5.modal-title Detalles de Reserva
+                                                    button.btn-close.btn-close-white(type="button" data-bs-dismiss="modal")
+                                                .modal-body
+                                                    h6.border-bottom.pb-2 Información del Cliente
+                                                    p
+                                                        strong Nombre: 
+                                                        | #{reserva.nombre}
+                                                    p
+                                                        strong Email: 
+                                                        | #{reserva.email}
+                                                    p
+                                                        strong Teléfono: 
+                                                        | #{reserva.telefono}
+                                                    
+                                                    h6.border-bottom.pb-2.mt-4 Información de la Reserva
+                                                    p
+                                                        strong ID de Reserva: 
+                                                        | #{reserva.id}
+                                                    p
+                                                        strong Fecha de Reserva: 
+                                                        | #{new Date(reserva.fecha_reserva).toLocaleString()}
+                                                    p
+                                                        strong Número de Personas: 
+                                                        | #{reserva.numero_personas}
+                                                    p
+                                                        strong Viaje: 
+                                                        if reserva.viaje
+                                                            | #{reserva.viaje.titulo}
+                                                        else
+                                                            span.text-muted Viaje no disponible
+                                                
+                                                .modal-footer
+                                                    button.btn.btn-secondary(type="button" data-bs-dismiss="modal") Cerrar
+                else
+                    .alert.alert-info.text-center.p-5
+                        i.fas.fa-info-circle.fa-2x.mb-3.d-block
+                        h4 No hay reservas registradas
+                        p Aún no se han realizado reservas a través del sitio web.
+
+block scripts
+    script.
+        function confirmarEliminar(id, nombre) {
+            if (confirm(`¿Está seguro de eliminar la reserva de ${nombre}?`)) {
+                // Aquí iría la lógica para eliminar la reserva
+                alert('Funcionalidad de eliminación aún no implementada');
+                // Una vez implementada, puedes usar fetch para enviar la solicitud
+                // fetch(`/admin/reservas/eliminar/${id}`, { method: 'POST' })
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         if (data.success) {
+                //             window.location.reload();
+                //         } else {
+                //             alert('Error al eliminar la reserva');
+                //         }
+                //     });
+            }
+        }

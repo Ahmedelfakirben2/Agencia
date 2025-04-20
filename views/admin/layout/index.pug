@@ -1,0 +1,60 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{nombrepagina} | Panel de Administración
+        link(rel="stylesheet", href="/css/bootstrap.css")
+        link(rel="stylesheet", href="/css/style.css")
+        link(rel="stylesheet", href="/css/admin.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+    body
+        header
+            .navegacion.bg-dark
+                .container
+                    .row.justify-content-between.align-items-center.py-3
+                        .col-md-3.text-center.text-md-start.mb-3.mb-md-0
+                            a(href="/admin")
+                                img(src="/img/logo.svg", alt="Logo Admin", style="max-width: 180px;")
+                        .col-md-9
+                            .d-flex.flex-wrap.justify-content-center
+                                .admin-buttons
+                                    if currentUrl !== '/admin'
+                                        a.btn.btn-primary.me-2.mb-2(href="/admin")
+                                            i.fas.fa-home.me-1
+                                            | Volver a Admin
+                                    a.btn.btn-primary.me-2.mb-2(href="/admin/viajes")
+                                        i.fas.fa-plane-departure.me-1
+                                        | Viajes
+                                    a.btn.btn-primary.me-2.mb-2(href="/admin/guias")
+                                        i.fas.fa-user-tie.me-1
+                                        | Guias
+                                    a.btn.btn-primary.me-2.mb-2(href="/admin/hoteles")
+                                        i.fas.fa-hotel.me-1
+                                        | Hoteles
+                                    a.btn.btn-primary.me-2.mb-2(href="/admin/testimoniales")
+                                        i.fas.fa-comment.me-1
+                                        | Testimoniales
+                                    a.btn.btn-primary.me-2.mb-2(href="/admin/reservas")
+                                        i.fas.fa-calendar-check.me-1
+                                        | Reservas
+                                    a.btn.btn-primary.me-2.mb-2(href="/admin/ofertas")
+                                        i.fas.fa-percent.me-1
+                                        | Ofertas
+                                .w-100.d-md-none
+                                .text-center.mt-2.mt-md-0
+                                    a.btn.btn-success(href="/")
+                                        i.fas.fa-globe.me-1
+                                        | Ver Sitio
+        block contenido
+            main.container.mt-5
+                h1.text-center.mt-5 #{pagina}
+        footer.container.py-4.mt-5.text-center.text-white.bg-dark
+            .row
+                .col-md-12
+                    p 
+                        i.fas.fa-lock.me-2
+                        | Panel de Administración - #{actualYear}
+                        i.fas.fa-code.ms-2
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js")
+        block scripts

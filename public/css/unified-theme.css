@@ -1,0 +1,437 @@
+/* 
+ * unified-theme.css 
+ * Este archivo contiene estilos que unifican la apariencia de todo el sitio
+ * para que sea consistente con los colores del header
+ */
+
+/* Estilos generales para unificar colores en todos los botones */
+.btn-primary,
+.btn-quick-access,
+button[type="submit"]:not(.btn-secondary),
+.btn-detalles,
+.nav-tabs .nav-link.active {
+    background: linear-gradient(to right, var(--header-gradient-start), var(--primary-color));
+    border: none;
+    color: white;
+    box-shadow: 0 3px 8px rgba(14, 58, 135, 0.2);
+}
+
+.btn-primary:hover,
+.btn-quick-access:hover,
+button[type="submit"]:hover:not(.btn-secondary),
+.btn-detalles:hover,
+.nav-tabs .nav-link:hover {
+    background: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-start));
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(14, 58, 135, 0.3);
+}
+
+/* Unificar colores de elementos destacados con dorado */
+.btn-success,
+.btn-highlight,
+.btn-cta,
+.btn-oferta,
+.btn-oferta-sidebar,
+.btn-reservar {
+    background: linear-gradient(to right, var(--secondary-color), #E6B800);
+    border: 1px solid var(--secondary-color);
+    color: white;
+}
+
+.btn-success:hover,
+.btn-highlight:hover,
+.btn-cta:hover,
+.btn-oferta:hover,
+.btn-oferta-sidebar:hover,
+.btn-reservar:hover {
+    background: linear-gradient(to right, #E6B800, var(--secondary-color));
+    box-shadow: 0 5px 15px rgba(255, 204, 51, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Estilos para títulos de página con decoración */
+.page-title, h1.page-header, h2.page-header {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.page-title::after, h1.page-header::after, h2.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--header-gradient-start), var(--secondary-color));
+    border-radius: 1.5px;
+}
+
+/* Unificar bordes y sombras */
+.card, 
+.card-viaje, 
+.oferta-card,
+.oferta-slide,
+.testimonial-content,
+.sidebar-ofertas,
+.mini-oferta-banner,
+.about-content,
+.feature-item,
+.detalles-section {
+    border: 1px solid rgba(14, 58, 135, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+/* Efectos de hover unificados */
+.card:hover, 
+.card-viaje:hover, 
+.oferta-card:hover,
+.oferta-slide:hover,
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(14, 58, 135, 0.15);
+}
+
+/* Unificar colores de navegación de tabs */
+.nav-tabs .nav-link {
+    color: var(--header-gradient-start);
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    border-color: var(--header-gradient-start);
+    color: white;
+}
+
+/* Focusado de formulario unificado */
+.form-control:focus {
+    border-color: var(--header-gradient-start);
+    box-shadow: 0 0 0 0.25rem rgba(14, 58, 135, 0.25);
+}
+
+/* Unificar estilos de badges y etiquetas */
+.badge, .disponibilidad-badge, .oferta-badge {
+    background: linear-gradient(to right, var(--header-gradient-start), var(--primary-color));
+    color: white;
+    font-weight: 600;
+}
+
+.badge-secondary, .precio-oferta, .mini-oferta-precio {
+    background: linear-gradient(to right, var(--secondary-color), #E6B800);
+    color: white;
+}
+
+/* Ajustar colores para elementos de paginación */
+.pagination .page-link {
+    color: var(--header-gradient-start);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--header-gradient-start);
+    border-color: var(--header-gradient-start);
+}
+
+/* Estilos para barras de progreso */
+.progress-bar {
+    background: linear-gradient(to right, var(--header-gradient-start), var(--primary-color));
+}
+
+/* Colores para alertas informativas */
+.alert-info {
+    border-left: 4px solid var(--header-gradient-start);
+    background-color: rgba(14, 58, 135, 0.1);
+    color: var(--header-gradient-start);
+}
+
+/* Estilos para botones de navegación en carruseles */
+.owl-nav button, 
+.carousel-control-prev, 
+.carousel-control-next {
+    background: linear-gradient(to right, var(--header-gradient-start), var(--primary-color)) !important;
+    color: white !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.owl-nav button:hover, 
+.carousel-control-prev:hover, 
+.carousel-control-next:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Estilos para indicadores de carruseles */
+.owl-dots .owl-dot.active span,
+.carousel-indicators .active {
+    background-color: var(--header-gradient-start) !important;
+}
+
+/* Ajustes para vinculos y textos destacados */
+a:not(.btn):not(.nav-link) {
+    color: var(--header-gradient-start);
+    transition: all 0.3s ease;
+}
+
+a:not(.btn):not(.nav-link):hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.text-primary {
+    color: var(--header-gradient-start) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+/* Estilos para borders decorativos */
+.border-primary {
+    border-color: var(--header-gradient-start) !important;
+}
+
+.border-secondary {
+    border-color: var(--secondary-color) !important;
+}
+
+/* Animaciones para elementos fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animaciones con retraso para elementos secuenciales */
+.fade-in:nth-child(1) { transition-delay: 0.1s; }
+.fade-in:nth-child(2) { transition-delay: 0.2s; }
+.fade-in:nth-child(3) { transition-delay: 0.3s; }
+.fade-in:nth-child(4) { transition-delay: 0.4s; }
+.fade-in:nth-child(5) { transition-delay: 0.5s; }
+.fade-in:nth-child(6) { transition-delay: 0.6s; }
+
+/* Efecto de shimmer para elementos destacados */
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Indicador para el usuario de páginas en scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator i {
+    color: white;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Fondos degradados para diferentes secciones */
+
+/* Fondo sutil para todo el sitio */
+body {
+    background: linear-gradient(to bottom, #f8f9fa, #e9f2f7);
+    background-attachment: fixed;
+}
+
+/* Fondos para secciones alternadas */
+.section-light {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 247, 250, 0.9));
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-accent {
+    background: linear-gradient(135deg, rgba(14, 58, 135, 0.05), rgba(21, 185, 213, 0.1));
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-gold {
+    background: linear-gradient(135deg, rgba(255, 204, 51, 0.1), rgba(230, 184, 0, 0.05));
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Fondos para cards y contenedores */
+.card, 
+.card-viaje, 
+.oferta-card,
+.oferta-slide,
+.sidebar-ofertas {
+    background: white;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.card::before, 
+.card-viaje::before, 
+.oferta-card::before,
+.oferta-slide::before,
+.sidebar-ofertas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 248, 255, 0.9));
+    z-index: -1;
+}
+
+/* Fondo con patrón sutil */
+.pattern-bg {
+    position: relative;
+}
+
+.pattern-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(21, 185, 213, 0.1) 2px, transparent 2px), 
+                     radial-gradient(rgba(14, 58, 135, 0.1) 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    z-index: -1;
+}
+
+/* Separadores de sección con degradado */
+.section-divider {
+    height: 4px;
+    background: linear-gradient(to right, var(--header-gradient-start), var(--secondary-color));
+    margin: 3rem 0;
+    border-radius: 2px;
+}
+
+/* Fondo para banners de destacados */
+.hero-section,
+.destacado-banner {
+    background: linear-gradient(135deg, rgba(14, 58, 135, 0.9), rgba(21, 185, 213, 0.8));
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.hero-section::before,
+.destacado-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    z-index: 0;
+}
+
+.hero-section .content,
+.destacado-banner .content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fondo para página completa con gradiente sutil */
+.page-container {
+    background: linear-gradient(135deg, #f8f9fa, #e9f2f7, #f0f7fa);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+/* Fondo con degradado estilo papel para testimoniales */
+.testimonial-bg {
+    background: linear-gradient(135deg, #fff, #f9f9f9);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(0, 0, 0, 0.02),
+        rgba(0, 0, 0, 0.02) 1px,
+        transparent 1px,
+        transparent 6px
+    );
+    z-index: -1;
+    border-radius: 10px;
+}
+
+/* Fondo con efecto de gradiente animado sutil */
+.gradient-bg-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg-animated::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        -45deg, 
+        rgba(14, 58, 135, 0.05),
+        rgba(21, 185, 213, 0.1),
+        rgba(255, 204, 51, 0.1),
+        rgba(14, 58, 135, 0.05)
+    );
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: gradientBg 15s ease infinite;
+}
+
+@keyframes gradientBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

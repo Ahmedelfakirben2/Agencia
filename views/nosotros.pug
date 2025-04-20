@@ -1,0 +1,253 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5.page-container
+        // Sección de presentación
+        .row.mb-5
+            .col-md-5 
+                img(src="img/nosotros.jpg", alt="Imagen de Nosotros", class="img-fluid rounded shadow")
+            .col-md-7.section-light.rounded-3
+                h1.border-bottom.pb-3.mb-4.page-header= pagina
+                blockquote.text-justify  
+                    span.fw-bold En VPO 
+                    | nuestra misión es hacer que cada viaje sea una experiencia inolvidable. Con años de experiencia en el sector turístico, ofrecemos a nuestros clientes un servicio personalizado y exclusivo, diseñado para satisfacer todas sus necesidades de viaje. Desde escapadas de fin de semana hasta aventuras exóticas alrededor del mundo, nuestro equipo de expertos está aquí para ayudarte a planificar el viaje de tus sueños. 
+                blockquote.text-justify  Trabajamos con una amplia red de socios globales para ofrecerte las mejores ofertas en vuelos, alojamiento, y actividades, asegurando que disfrutes de cada momento sin preocupaciones.
+        
+        // Sección de Valores y Compromiso
+        .row.mb-5
+            .col-12
+                .card.section-accent.shadow.border-0
+                    .card-body.pattern-bg
+                        h2.text-center.mb-4.page-header Nuestros Valores
+                        .row
+                            .col-md-4.mb-3
+                                .feature-box.text-center.p-3.bg-white.rounded-3.shadow-sm
+                                    i.fas.fa-medal.icon-lg.mb-3.text-primary
+                                    h4 Excelencia
+                                    p Nos esforzamos por superar las expectativas en cada viaje que organizamos.
+                            .col-md-4.mb-3
+                                .feature-box.text-center.p-3.bg-white.rounded-3.shadow-sm
+                                    i.fas.fa-handshake.icon-lg.mb-3.text-primary
+                                    h4 Confianza
+                                    p Construimos relaciones duraderas basadas en la honestidad y transparencia.
+                            .col-md-4.mb-3
+                                .feature-box.text-center.p-3.bg-white.rounded-3.shadow-sm
+                                    i.fas.fa-heart.icon-lg.mb-3.text-primary
+                                    h4 Pasión
+                                    p Amamos lo que hacemos y lo demostramos en cada detalle de nuestro servicio.
+        
+        .section-divider
+        
+        // Sección de Nuestra Gente (Guías Turísticos)
+        section.mb-5.section-gold.p-4.rounded-3
+            h2.text-center.mb-4.page-header.border-bottom.pb-3 Nuestra Gente
+            
+            if guias && guias.length > 0
+                .row
+                    each guia in guias
+                        .col-md-4.mb-4
+                            .card.h-100.shadow-sm.border-0.gradient-bg-animated
+                                .card-header.bg-primary.text-white.text-center 
+                                    h3.h5 #{guia.nombre} #{guia.apellido}
+                                .card-body.text-center
+                                    if guia.foto
+                                        if guia.foto.startsWith('http')
+                                            img.rounded-circle.mb-3.img-fluid(src=guia.foto, alt=`Foto de ${guia.nombre}`, style="width: 150px; height: 150px; object-fit: cover;")
+                                        else
+                                            img.rounded-circle.mb-3.img-fluid(src=`/uploads/guias/${guia.foto}`, alt=`Foto de ${guia.nombre}`, style="width: 150px; height: 150px; object-fit: cover;")
+                                    else
+                                        img.rounded-circle.mb-3.img-fluid(src="/img/nosotros.jpg", alt=`Foto de ${guia.nombre}`, style="width: 150px; height: 150px; object-fit: cover;")
+                                    
+                                    p.badge.bg-secondary.mb-3 #{guia.experiencia_anos} años de experiencia
+                                    
+                                    .guia-info
+                                        p
+                                            i.fas.fa-language.me-2.text-primary
+                                            | #{guia.idiomas}
+                                        p
+                                            i.fas.fa-envelope.me-2.text-primary
+                                            | #{guia.email}
+                                        p
+                                            i.fas.fa-phone.me-2.text-primary
+                                            | #{guia.telefono}
+                                
+                                .card-footer.bg-white.border-0.text-center
+                                    button.btn.btn-outline-primary.btn-sm.w-100(type="button" data-bs-toggle="modal" data-bs-target=`#guiaModal${guia.id}`)
+                                        i.fas.fa-user-tie.me-2
+                                        | Ver más información
+                        
+                        // Modal para detalles del guía
+                        .modal.fade(id=`guiaModal${guia.id}` tabindex="-1" aria-labelledby=`guiaModalLabel${guia.id}` aria-hidden="true")
+                            .modal-dialog.modal-lg
+                                .modal-content
+                                    .modal-header.bg-primary.text-white
+                                        h5.modal-title(id=`guiaModalLabel${guia.id}`) #{guia.nombre} #{guia.apellido}
+                                        button.btn-close.btn-close-white(type="button" data-bs-dismiss="modal" aria-label="Close")
+                                    .modal-body
+                                        .row
+                                            .col-md-4.text-center
+                                                if guia.foto
+                                                    if guia.foto.startsWith('http')
+                                                        img.rounded-circle.mb-3.img-fluid(src=guia.foto, alt=`Foto de ${guia.nombre}`, style="width: 200px; height: 200px; object-fit: cover;")
+                                                    else
+                                                        img.rounded-circle.mb-3.img-fluid(src=`/uploads/guias/${guia.foto}`, alt=`Foto de ${guia.nombre}`, style="width: 200px; height: 200px; object-fit: cover;")
+                                                else
+                                                    img.rounded-circle.mb-3.img-fluid(src="/img/nosotros.jpg", alt=`Foto de ${guia.nombre}`, style="width: 200px; height: 200px; object-fit: cover;")
+                                                
+                                                p.badge.bg-secondary.mb-3 #{guia.experiencia_anos} años de experiencia
+                                            
+                                            .col-md-8
+                                                h5.mb-3 Información del Guía
+                                                
+                                                .info-item
+                                                    i.fas.fa-language.text-primary
+                                                    p.mb-2 
+                                                        strong Idiomas: 
+                                                        | #{guia.idiomas}
+                                                
+                                                .info-item
+                                                    i.fas.fa-envelope.text-primary
+                                                    p.mb-2
+                                                        strong Contacto: 
+                                                        | #{guia.email} / #{guia.telefono}
+                                                
+                                        .mt-4
+                                            h5.mb-3 ¿Por qué viajar con #{guia.nombre}?
+                                            .row
+                                                .col-md-6
+                                                    .ventaja-guia.mb-3
+                                                        i.fas.fa-map-marked-alt.text-success.me-2
+                                                        p.mb-0 
+                                                            strong Conocimiento local 
+                                                            | - Conoce a la perfección cada destino
+                                                    
+                                                    .ventaja-guia.mb-3
+                                                        i.fas.fa-history.text-success.me-2
+                                                        p.mb-0 
+                                                            strong Experiencia 
+                                                            | - #{guia.experiencia_anos} años como guía profesional
+                                                
+                                                .col-md-6
+                                                    .ventaja-guia.mb-3
+                                                        i.fas.fa-users.text-success.me-2
+                                                        p.mb-0 
+                                                            strong Atención personalizada 
+                                                            | - Grupos reducidos para mejor experiencia
+                                                    
+                                                    .ventaja-guia.mb-3
+                                                        i.fas.fa-star.text-success.me-2
+                                                        p.mb-0 
+                                                            strong Valoraciones excelentes 
+                                                            | - Recomendado por viajeros anteriores
+                                    .modal-footer
+                                        button.btn.btn-secondary(type="button" data-bs-dismiss="modal") Cerrar
+            else
+                .alert.alert-info.text-center
+                    p No hay guías disponibles para mostrar.
+
+        .section-divider
+        
+        // Sección de Alojamiento (Hoteles)
+        section.mt-5.section-light.p-4.rounded-3
+            h2.text-center.mb-4.page-header.border-bottom.pb-3 Alojamiento
+            
+            if hoteles && hoteles.length > 0
+                .row
+                    each hotel in hoteles
+                        .col-md-6.mb-4
+                            .card.h-100.shadow-sm.gradient-bg-animated
+                                .card-header.bg-success.text-white
+                                    h3.card-title.h5 #{hotel.nombre}
+                                    .estrellas.mb-0
+                                        - var estrellas = hotel.estrellas || 0
+                                        - var i = 0
+                                        while i < 5
+                                            if i < estrellas
+                                                i.fas.fa-star.text-warning
+                                            else
+                                                i.far.fa-star.text-warning
+                                            - i++
+                                .row.g-0
+                                    .col-md-5
+                                        if hotel.imagenes
+                                            - try {
+                                            -   let imgArray = [];
+                                            -   if (typeof hotel.imagenes === 'string') {
+                                            -     imgArray = JSON.parse(hotel.imagenes);
+                                            -   } else if (Array.isArray(hotel.imagenes)) {
+                                            -     imgArray = hotel.imagenes;
+                                            -   }
+                                            -   if (imgArray && imgArray.length > 0) {
+                                                img.img-fluid.rounded-start(src=imgArray[0], alt=`Imagen de ${hotel.nombre}`, style="height: 200px; width: 100%; object-fit: cover;")
+                                            -   } else {
+                                                img.img-fluid.rounded-start(src="/img/nosotros.jpg", alt=`Imagen de ${hotel.nombre}`, style="height: 200px; width: 100%; object-fit: cover;")
+                                            -   }
+                                            - } catch(e) {
+                                                img.img-fluid.rounded-start(src="/img/nosotros.jpg", alt=`Imagen de ${hotel.nombre}`, style="height: 200px; width: 100%; object-fit: cover;")
+                                            - }
+                                        else if hotel.imagen
+                                            img.img-fluid.rounded-start(src=hotel.imagen.startsWith('http') ? hotel.imagen : `/uploads/hoteles/${hotel.imagen}`, alt=`Imagen de ${hotel.nombre}`, style="height: 200px; width: 100%; object-fit: cover;")
+                                        else
+                                            img.img-fluid.rounded-start(src="/img/nosotros.jpg", alt=`Imagen de ${hotel.nombre}`, style="height: 200px; width: 100%; object-fit: cover;")
+                                    .col-md-7
+                                        .card-body
+                                            p.card-text
+                                                i.fas.fa-map-marker-alt.me-2.text-danger
+                                                strong Ubicación: 
+                                                | #{hotel.direccion}, #{hotel.ciudad}, #{hotel.pais}
+                                            if hotel.descripcion
+                                                p.card-text.small #{hotel.descripcion.substring(0, 100)}... 
+                                            
+                                            if hotel.servicios
+                                                p.card-text
+                                                    i.fas.fa-concierge-bell.me-2.text-danger
+                                                    strong Servicios: 
+                                                    - let servicios = [];
+                                                    - if (typeof hotel.servicios === 'string') {
+                                                    -   servicios = hotel.servicios.split(',').map(s => s.trim());
+                                                    - } else if (Array.isArray(hotel.servicios)) {
+                                                    -   servicios = hotel.servicios;
+                                                    - }
+                                                    span.small #{servicios.slice(0, 3).join(', ')}...
+            else
+                .alert.alert-info.text-center
+                    p No hay hoteles disponibles para mostrar.
+
+    // Estilos adicionales para esta página
+    style.
+        .page-header {
+            color: var(--header-gradient-start);
+            position: relative;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        
+        .guia-info i {
+            width: 20px;
+        }
+        
+        .estrellas {
+            display: inline-block;
+        }
+
+        .feature-box {
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        .icon-lg {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--header-gradient-start);
+        }

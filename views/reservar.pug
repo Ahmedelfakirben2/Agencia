@@ -1,0 +1,68 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5.page-container
+        h1.text-center.mb-5.page-header #{viaje.titulo}
+        
+        .row
+            .col-md-6
+                if viaje.imagenes && viaje.imagenes.length > 0
+                    .row
+                        each imagen in viaje.imagenes
+                            .col-md-4.mb-3
+                                img(src=imagen, alt=`Imagen de ${viaje.titulo}`, class="img-fluid")
+                else
+                    img(src="/public/img/logo.svg", alt="Imagen por defecto", class="img-fluid")
+                //- if viaje.imagenes && viaje.imagenes.length > 0
+                //-     img(src=viaje.imagenes[0], alt=`imagen de ${viaje.titulo}`, class="img-fluid")
+                //- else 
+                //-     img(src=`/img/destinos_${viaje.imagen}.jpg`, alt=`imagen de ${viaje.titulo}`, class="img-fluid")
+                    
+                .card.mt-4.section-light
+                    .card-body
+                        h2.card-title Detalles del Viaje
+                        p
+                            i.fas.fa-calendar-alt.me-2
+                            | Fecha Ida: #{new Date(viaje.fecha_ida).toLocaleDateString()}
+                        p
+                            i.fas.fa-calendar-alt.me-2
+                            | Fecha Vuelta: #{new Date(viaje.fecha_vuelta).toLocaleDateString()}
+                        p
+                            i.fas.fa-users.me-2
+                            | Plazas Disponibles: #{viaje.disponibles}
+                        p
+                            i.fas.fa-money-bill-wave.me-2
+                            strong Precio: #{viaje.precio} DH
+
+            .col-md-6
+                h2.mb-4.page-header Formulario de Reserva
+                
+                if errores
+                    .alert.alert-danger
+                        ul.mb-0
+                            each error in errores
+                                li= error.mensaje
+
+                .section-accent.p-4.rounded-3.shadow
+                    form(action="/reservar", method="POST")
+                        input(type="hidden", name="viaje_id", value=viaje.id)
+                        
+                        .form-group.mb-3
+                            label(for="nombre") Nombre:
+                            input#nombre.form-control(type="text", name="nombre", placeholder="Tu Nombre", value=nombre)
+                        
+                        .form-group.mb-3
+                            label(for="email") Email:
+                            input#email.form-control(type="email", name="email", placeholder="Tu Email", value=email)
+                        
+                        .form-group.mb-3
+                            label(for="telefono") Teléfono:
+                            input#telefono.form-control(type="tel", name="telefono", placeholder="Tu Teléfono", value=telefono)
+                        
+                        .form-group.mb-3
+                            label(for="numero_personas") Número de Personas:
+                            input#numero_personas.form-control(type="number", name="numero_personas", min="1", max=viaje.disponibles, value=numero_personas)
+                            small.form-text.text-muted Máximo #{viaje.disponibles} personas
+                        
+                        .d-grid.gap-2
+                            input.btn.btn-primary.btn-block(type="submit", value="Reservar Ahora")

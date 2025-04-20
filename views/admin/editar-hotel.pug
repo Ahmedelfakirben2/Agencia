@@ -1,0 +1,45 @@
+extends ./layout/index
+
+block contenido
+  main.container.mt-5
+    h1.text-center.mb-5 Editar Hotel
+
+    .row.justify-content-center
+      .col-md-8
+        form(action=`/admin/hoteles/editar/${hotel.id}` method="POST" enctype="multipart/form-data")
+          .mb-3
+            label.form-label(for="nombre") Nombre
+            input#nombre.form-control(type="text" name="nombre" value=hotel.nombre required)
+          .mb-3
+            label.form-label(for="direccion") Dirección
+            input#direccion.form-control(type="text" name="direccion" value=hotel.direccion required)
+          .mb-3
+            label.form-label(for="ciudad") Ciudad
+            input#ciudad.form-control(type="text" name="ciudad" value=hotel.ciudad required)
+          .mb-3
+            label.form-label(for="pais") País
+            input#pais.form-control(type="text" name="pais" value=hotel.pais)
+          .mb-3
+            label.form-label(for="telefono") Teléfono
+            input#telefono.form-control(type="text" name="telefono" value=hotel.telefono)
+          .mb-3
+            label.form-label(for="email") Email
+            input#email.form-control(type="email" name="email" value=hotel.email)
+          .mb-3
+            label.form-label(for="estrellas") Estrellas
+            input#estrellas.form-control(type="number" name="estrellas" value=hotel.estrellas min="1" max="5")
+          .mb-3
+            label.form-label(for="servicios") Servicios
+            textarea#servicios.form-control(name="servicios")= hotel.servicios
+          .mb-3
+            label.form-label(for="imagenes") Imágenes (puedes seleccionar varias)
+            input#imagenes.form-control(type="file" name="imagenes" multiple)
+            if hotel.imagenes && hotel.imagenes.length
+              .mt-3
+                each imagen in hotel.imagenes
+                  img(src=`${process.env.BASE_URL}/uploads/hoteles/${imagen}` alt="Imagen del hotel" style="max-width: 200px; height: auto;")
+          .mb-3
+            label.form-label(for="sitioWeb") Sitio Web
+            input#sitioWeb.form-control(type="text" name="sitioWeb" value=hotel.sitioWeb)
+          button.btn.btn-primary(type="submit") Guardar
+          a.btn.btn-secondary(href="/admin/hoteles") Cancelar

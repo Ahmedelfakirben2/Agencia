@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Satec2016C@U",
+    "database": "agencia_viajes",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

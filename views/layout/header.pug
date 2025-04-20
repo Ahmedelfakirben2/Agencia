@@ -1,0 +1,23 @@
+header
+    .navegacion
+        .container-fluid.py-2
+            .row
+                .col-12
+                    nav.mt-4.header-nav-centered
+                        a.nav-link.header-link(href="/", class=(pagina === 'Inicio' ? 'active' : ''))
+                            i.fas.fa-home.me-1.text-white
+                            span.text-white Inicio 
+                        a.nav-link.header-link(href="/nosotros", class=(pagina === 'Nosotros' ? 'active' : '')) 
+                            i.fas.fa-info-circle.me-1.text-white
+                            span.text-white Nosotros 
+                        a.nav-link.header-link(href="/viajes", class=(pagina === 'Proximos Viajes' ? 'active' : ''))
+                            i.fas.fa-globe-americas.me-1.text-white
+                            span.text-white Destinos
+                        a.nav-link.header-link(href="/ofertas", class=(pagina === 'Ofertas Especiales' ? 'active' : ''))
+                            i.fas.fa-percentage.me-1.text-white
+                            span.text-white Ofertas
+                        a.nav-link.header-link(href="/testimoniales", class=(pagina === 'Testimoniales' ? 'active' : ''))
+                            i.fas.fa-comments.me-1.text-white
+                            span.text-white Experiencias
+    // Indicador de progreso de scroll
+    .scroll-progress

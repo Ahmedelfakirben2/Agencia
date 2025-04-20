@@ -1,0 +1,33 @@
+extends ../layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mb-5= pagina
+        .row.justify-content-center
+            .col-md-8
+                if errores
+                    each error in errores
+                        .alert.alert-danger.text-center= error.mensaje
+
+                .admin-form-container
+                    form(method="POST" enctype="multipart/form-data")
+                        .mb-3
+                            label.form-label(for="anuncio") Anuncio
+                            textarea#anuncio.form-control(name="anuncio" rows="3")= oferta.anuncio
+                        .mb-3
+                            label.form-label(for="imagen")
+                                i.fas.fa-image.me-2
+                                | Imagen
+                            input#imagen.form-control(type="file", name="imagen")
+                            if oferta.imagen
+                                .mt-3
+                                    p.text-muted.small Si no selecciona una nueva imagen, se mantendrá la actual.
+                                    img.img-thumbnail.mt-2(src=oferta.imagen, alt="Imagen actual", style="max-height: 200px")
+
+                        .d-flex.justify-content-between.mt-4
+                            a.btn.btn-secondary.btn-cancel(href="/admin/ofertas")
+                                i.fas.fa-arrow-left.me-2
+                                | Volver
+                            button.btn.btn-primary.btn-submit(type="submit")
+                                i.fas.fa-save.me-2
+                                | Actualizar Oferta

@@ -1,0 +1,84 @@
+/* Estilos para la barra lateral de ofertas */
+.sidebar-ofertas {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    position: sticky;
+    top: 2rem;
+}
+
+.sidebar-title {
+    font-family: 'Staatliches', cursive;
+    color: var(--header-gradient-start);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.oferta-sidebar {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.oferta-sidebar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.oferta-imagen-sidebar {
+    height: 150px;
+    overflow: hidden;
+}
+
+.oferta-imagen-sidebar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.oferta-sidebar:hover .oferta-imagen-sidebar img {
+    transform: scale(1.1);
+}
+
+.oferta-content-sidebar {
+    padding: 1.2rem;
+}
+
+.oferta-texto-sidebar {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.btn-oferta-sidebar {
+    display: inline-block;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-oferta-sidebar:hover {
+    background-color: var(--header-gradient-start);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(14, 58, 135, 0.3);
+    color: white;
+}
+
+.sidebar-more-link {
+    text-align: center;
+    margin-top: 1.5rem;
+}

@@ -1,0 +1,36 @@
+extends layout/index
+
+block contenido
+  main.container.mt-5
+    h1.text-center.mt-5 #{pagina}
+    .row.mt-4
+      .col-md-4.mb-4
+        .admin-dashboard-card
+          h5.card-title
+            i.fas.fa-plane-departure.me-2
+            | Viajes
+          p.card-text #{data.numViajes}
+      .col-md-4.mb-4
+        .admin-dashboard-card
+          h5.card-title
+            i.fas.fa-user-tie.me-2
+            | Guias
+          p.card-text #{data.numGuias}
+      .col-md-4.mb-4
+        .admin-dashboard-card
+          h5.card-title
+            i.fas.fa-hotel.me-2
+            | Hoteles
+          p.card-text #{data.numHoteles}
+      .col-md-6.mb-4
+        .admin-dashboard-card
+          h5.card-title
+            i.fas.fa-calendar-check.me-2
+            | Reservas
+          p.card-text #{data.numReservas}
+      .col-md-6.mb-4
+        .admin-dashboard-card
+          h5.card-title
+            i.fas.fa-comment.me-2
+            | Testimoniales
+          p.card-text #{data.numTestimoniales}

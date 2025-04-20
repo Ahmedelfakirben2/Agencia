@@ -1,0 +1,82 @@
+footer.mt-5
+    .footer-wave
+        svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 1440 320")
+            path(fill="#0e3a87", fill-opacity="1", d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,213.3C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z")
+    
+    .container.py-5
+        .row
+            .col-md-4.mb-4
+                h3.mb-4.footer-title VPO - Viaje Para Olvidar
+                p.footer-text Nuestra agencia de viajes se compromete a ofrecerte experiencias únicas e inolvidables en todo el mundo.
+                .mt-4
+                    .d-flex.align-items-center.mb-3
+                        .footer-icon-box
+                            i.fas.fa-map-marker-alt
+                        p.mb-0 123 Avenida de los Viajes, Casablanca, Marruecos
+                    .d-flex.align-items-center.mb-3
+                        .footer-icon-box
+                            i.fas.fa-phone
+                        p.mb-0 +212 555-1234
+                    .d-flex.align-items-center
+                        .footer-icon-box
+                            i.fas.fa-envelope
+                        p.mb-0 contact@vpo-voyages.com
+            
+            .col-md-4.mb-4
+                h3.mb-4.footer-title Enlaces Rápidos
+                ul.list-unstyled.footer-links
+                    li.footer-link-item
+                        a.footer-link(href="/")
+                            i.fas.fa-chevron-right
+                            | Inicio
+                    li.footer-link-item
+                        a.footer-link(href="/nosotros")
+                            i.fas.fa-chevron-right
+                            | Nosotros
+                    li.footer-link-item
+                        a.footer-link(href="/viajes")
+                            i.fas.fa-chevron-right
+                            | Destinos
+                    li.footer-link-item
+                        a.footer-link(href="/ofertas")
+                            i.fas.fa-chevron-right
+                            | Ofertas
+                    li.footer-link-item
+                        a.footer-link(href="/testimoniales")
+                            i.fas.fa-chevron-right
+                            | Experiencias
+                    li.footer-link-item
+                        a.footer-link(href="/login")
+                            i.fas.fa-chevron-right
+                            | Administración
+            
+            .col-md-4
+                h3.mb-4.footer-title Síguenos
+                .social-icons.d-flex.flex-wrap
+                    a.social-icon(href="https://www.facebook.com" target="_blank" aria-label="Facebook")
+                        i.fab.fa-facebook-f
+                    a.social-icon(href="https://www.twitter.com" target="_blank" aria-label="Twitter")
+                        i.fab.fa-twitter
+                    a.social-icon(href="https://www.instagram.com" target="_blank" aria-label="Instagram")
+                        i.fab.fa-instagram
+                    a.social-icon(href="https://www.linkedin.com/in/juan-carlos-ubaldo-sanchez-developer" target="_blank" aria-label="LinkedIn")
+                        i.fab.fa-linkedin-in
+                
+                .mt-4
+                    h5.footer-subtitle Suscríbete a nuestro boletín
+                    .newsletter-form
+                        .input-group
+                            input.form-control(type="email" placeholder="Tu email" aria-label="Email para suscripción")
+                            button.btn-newsletter(type="button")
+                                i.fas.fa-paper-plane
+        
+        hr.footer-divider
+        
+        .row
+            .col-lg-6.text-center.text-lg-start
+                p.copyright &copy; #{actualYear} VPO - Viaje Para Olvidar. Todos los derechos reservados.
+            .col-lg-6.text-center.text-lg-end
+                p.designer Diseñado con 
+                    i.fas.fa-heart.text-danger.mx-1
+                    | por 
+                    a.designer-link(href="https://www.linkedin.com/in/juan-carlos-ubaldo-sanchez-developer" target="_blank") Juan Carlos Ubaldo

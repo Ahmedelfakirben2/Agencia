@@ -1,0 +1,29 @@
+extends ../layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mb-5= pagina
+        .row.justify-content-center
+            .col-md-8
+                if errores
+                    each error in errores
+                        .alert.alert-danger.text-center= error.mensaje
+
+                .admin-form-container
+                    form(method="POST" enctype="multipart/form-data")
+                        .mb-3
+                            label.form-label(for="anuncio") Anuncio
+                            textarea#anuncio.form-control(name="anuncio" rows="3")= oferta ? oferta.anuncio : ''
+                        .mb-3
+                            label.form-label(for="imagen")
+                                i.fas.fa-image.me-2
+                                | Imagen
+                            input#imagen.form-control(type="file", name="imagen")
+
+                        .d-flex.justify-content-between
+                            a.btn.btn-secondary.btn-cancel(href="/admin/ofertas")
+                                i.fas.fa-times.me-2
+                                | Cancelar
+                            button.btn.btn-primary.btn-submit(type="submit")
+                                i.fas.fa-save.me-2
+                                | Crear Oferta

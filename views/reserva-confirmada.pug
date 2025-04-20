@@ -1,0 +1,68 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        .row.justify-content-center
+            .col-md-8
+                .card.shadow-lg.border-0
+                    .card-body.p-5
+                        .text-center.mb-5
+                            if flash && flash.tipo === 'exito'
+                                .alert.alert-success
+                                    i.fas.fa-check-circle.me-2.fa-2x
+                                    h2.mb-3 ¡Reserva Confirmada!
+                                    p.lead= flash.mensaje
+                            else
+                                h2.mb-3 ¡Reserva Confirmada!
+                                p.lead Tu reserva ha sido procesada exitosamente.
+                        
+                        .confirmacion-detalles
+                            // Aquí podrías mostrar los detalles de la reserva si los pasas desde el controlador
+                            h3.text-center.mb-4 Información Importante
+                            
+                            .info-item.mb-4
+                                i.fas.fa-envelope.text-primary.me-2
+                                p Te hemos enviado un correo electrónico con los detalles de tu reserva.
+                            
+                            .info-item.mb-4
+                                i.fas.fa-calendar-check.text-primary.me-2
+                                p Guarda el correo de confirmación, te servirá como comprobante de reserva.
+                            
+                            .info-item.mb-4
+                                i.fas.fa-money-bill-wave.text-primary.me-2
+                                p Para confirmar tu reserva, tendrás que realizar el pago antes de 48 horas.
+                            
+                            .info-item.mb-4
+                                i.fas.fa-phone.text-primary.me-2
+                                p Si tienes alguna duda, contáctanos al +212 555-1234.
+                        
+                        .text-center.mt-5
+                            a.btn.btn-primary.me-3(href="/")
+                                i.fas.fa-home.me-2
+                                | Volver al Inicio
+                            a.btn.btn-outline-primary(href="/viajes")
+                                i.fas.fa-globe.me-2
+                                | Ver más Viajes
+
+    style.
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .info-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+        .info-item p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+        .alert i {
+            vertical-align: middle;
+            margin-right: 1rem;
+        }

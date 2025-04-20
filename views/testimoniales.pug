@@ -1,0 +1,50 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5.page-container
+        h1.text-center.mt-5.mb-5.page-header.fade-in= pagina
+
+        // Mostrar los testimoniales existentes si hay
+        if testimoniales && testimoniales.length > 0
+            .row.mb-5
+                each testimonial in testimoniales
+                    .col-md-4.mb-4
+                        .card-viaje
+                            .card-body
+                                .testimonial-content.testimonial-bg
+                                    p.testimonial-text= testimonial.mensaje
+                                    .testimonial-author
+                                        i.fas.fa-user-circle.me-2
+                                        strong= testimonial.nombre
+                                    .testimonial-email
+                                        i.fas.fa-envelope.me-2
+                                        span= testimonial.correo
+        
+        .row.mt-5
+            .col-md-8.mx-auto
+                .detalles-section.section-accent
+                    h2.text-center.mb-4 Agrega un Testimonial
+
+                    if(errores)
+                        each error in errores
+                            .alert.alert-danger.text-center.mb-4
+                                i.fas.fa-exclamation-circle.me-2
+                                = error.mensaje
+
+                    form(action="/testimoniales" method="POST")
+                        .form-group.mb-3
+                            label.form-label(for="nombre") Nombre
+                            input#nombre.form-control(type="text", placeholder="Tu nombre", name="nombre", value=nombre || '')
+                        
+                        .form-group.mb-3
+                            label.form-label(for="correo") Correo Electrónico
+                            input#correo.form-control(type="email", placeholder="Tu correo electrónico", name="correo", value=correo || '')
+                        
+                        .form-group.mb-4
+                            label.form-label(for="mensaje") Mensaje
+                            textarea#mensaje.form-control(name="mensaje", placeholder="Comparte tu experiencia con nosotros", rows=5)= mensaje || ''
+
+                        .d-grid.gap-2
+                            button.btn-quick-access.btn-highlight.btn-lg.d-block(type="submit")
+                                i.fas.fa-paper-plane.me-2
+                                | Enviar Testimonial

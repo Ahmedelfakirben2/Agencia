@@ -1,0 +1,55 @@
+extends ./layout/index
+
+block contenido
+  main.container.mt-5
+    h1 Prueba de relación Viaje-Hotel
+    
+    .card.mb-4
+      .card-body
+        h2 Información del Viaje
+        p.fw-bold Título: #{resultado.titulo}
+        p.fw-bold ID: #{resultado.id}
+        p Descripción: #{resultado.descripcion}
+        
+        hr
+
+        h2 Información del Hotel Asociado
+        if resultado.hotel
+          .alert.alert-success
+            p La relación con el hotel existe y está cargada correctamente.
+          
+          .card.mt-3
+            .card-body
+              h3 #{resultado.hotel.nombre}
+              p ID del hotel: #{resultado.hotel.id}
+              
+              h4.mt-3 Datos del hotel:
+              ul
+                li Dirección: #{resultado.hotel.direccion}
+                li Ciudad: #{resultado.hotel.ciudad}
+                li País: #{resultado.hotel.pais}
+                li Estrellas: #{resultado.hotel.estrellas}
+                li Teléfono: #{resultado.hotel.telefono}
+                li Email: #{resultado.hotel.email}
+                
+              h4.mt-3 Sobre las imágenes: 
+              if resultado.hotel.imagenes && resultado.hotel.imagenes.length > 0
+                p.text-success El hotel tiene un array de imágenes con #{resultado.hotel.imagenes.length} elementos.
+                ol
+                  each imagen, index in resultado.hotel.imagenes
+                    li #{imagen}
+              else if resultado.hotel.imagen
+                p.text-warning El hotel tiene una sola imagen (campo imagen): #{resultado.hotel.imagen}
+              else
+                p.text-danger El hotel no tiene imágenes.
+              
+              // Depuración: imprimir objeto completo
+              h4.mt-3 Objeto hotel completo (debug):
+              pre.bg-light.p-3 #{JSON.stringify(resultado.hotel, null, 2)}
+        else
+          .alert.alert-danger
+            p No se ha encontrado un hotel asociado a este viaje.
+            
+        // Datos generales para depuración
+        h2.mt-4 Datos completos para depuración
+        pre.bg-light.p-3.small #{JSON.stringify(resultado, null, 2)}

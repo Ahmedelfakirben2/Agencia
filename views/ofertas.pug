@@ -1,0 +1,22 @@
+extends ./layout/index
+
+block contenido
+    main.container.page-container.gradient-bg-animated
+        h1.text-center.mt-5.page-header.fade-in= pagina
+        
+        .ofertas-grid.mt-5
+            if ofertas && ofertas.length > 0
+                - for (let i = 0; i < ofertas.length; i++)
+                    - const oferta = ofertas[i]
+                    .oferta-card.fade-in
+                        .oferta-imagen
+                            if oferta.imagen
+                                img(src=oferta.imagen, alt=`Imagen de oferta especial`)
+                            else
+                                img(src='/img/logo.svg', alt='Imagen por defecto')
+                        .oferta-content
+                            .oferta-text
+                                p.oferta-anuncio= oferta.anuncio
+                            a.btn-oferta(href='/viajes') Reservar Ahora
+            else
+                p.text-center.lead No hay ofertas disponibles en este momento.

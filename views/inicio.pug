@@ -1,0 +1,138 @@
+extends ./layout/index
+
+block slider
+    .slider.gradient-bg-animated 
+        .slider-content.text-center
+            em.slider-subtitle VPO
+            h1.slider-title Viaje Para Olvidar
+            p.slider-description Descubre experiencias inolvidables en destinos extraordinarios alrededor del mundo
+        
+        .quick-access-buttons
+            a.btn-quick-access.btn-highlight.btn-cta(href="/viajes")
+                i.fas.fa-plane-departure.me-2
+                | PLANIFICA TU VIAJE
+                
+        .scroll-indicator
+            i.fas.fa-chevron-down
+
+block contenido
+    main.container.mt-5
+        // Sección de Ofertas Especiales
+        if ofertas && ofertas.length > 0
+            .ofertas-section.fade-in.section-accent.gradient-bg-animated
+                .section-header.text-center
+                    h2.page-header.mb-4 Ofertas Especiales
+                    p.section-subtitle Descubre nuestras mejores promociones y ahorra en tu próxima aventura
+                
+                .ofertas-carousel.owl-carousel
+                    - for (let i = 0; i < ofertas.length; i++)
+                        - const oferta = ofertas[i]
+                        .oferta-slide
+                            if oferta.imagen
+                                .oferta-imagen
+                                    img(src=oferta.imagen, alt='Oferta especial')
+                                    .oferta-badge OFERTA EXCLUSIVA
+                            .oferta-content
+                                h3.oferta-titulo= oferta.anuncio
+                                if oferta.descripcion
+                                    p.oferta-descripcion= oferta.descripcion.substr(0, 100) + "..."
+                                .oferta-footer
+                                    if oferta.precio_original && oferta.precio
+                                        .oferta-precios
+                                            span.precio-original= oferta.precio_original
+                                            span.precio-oferta= oferta.precio
+                                    a.btn-quick-access.btn-sm(href=`/viajes/${oferta.slug || ''}`)
+                                        i.fas.fa-ticket-alt.me-2
+                                        | Ver Detalles
+                .text-center.mt-4
+                    a.btn-ver-mas(href='/ofertas') 
+                        i.fas.fa-arrow-right.me-2
+                        | Ver todas las ofertas
+
+        // Sección de Viajes
+        .viajes-section.my-5.section-light.pattern-bg
+            .section-header.text-center
+                h2.page-header.mb-4.fade-in Destinos Populares
+                p.section-subtitle.fade-in Explora nuestros destinos más solicitados y planifica tu próxima aventura
+        
+            .row.mt-5
+                each viaje in viajes
+                    .col-md-4.mb-4
+                        .card-viaje.fade-in
+                            .card-viaje-imagen
+                                if viaje.imagenes && viaje.imagenes.length > 0
+                                    each imagen in viaje.imagenes.slice(0, 1)
+                                        img.card-img-top(src=imagen, alt=`Image de ${viaje.titulo}`)
+                                else
+                                    img.card-img-top(src='/img/logo.svg', alt='Image par défaut')
+                                if viaje.disponible
+                                    .disponibilidad-badge Disponible
+                            .card-body
+                                h3.card-title= viaje.titulo
+                                .card-info
+                                    i.fas.fa-map-marker-alt
+                                    span= viaje.pais || 'Consultar'
+                                .card-info
+                                    i.fas.fa-calendar-alt
+                                    span= viaje.fecha_inicio ? new Date(viaje.fecha_inicio).toLocaleDateString() : 'Consultar fechas'
+                                p.card-text= `${viaje.descripcion ? viaje.descripcion.substr(0, 80) + '...' : 'Consulte detalles del viaje'}` 
+                                if viaje.precio
+                                    .precio= `${viaje.precio} €`
+                                a.btn-quick-access.btn-sm(href=`/viajes/${viaje.slug}`)
+                                    i.fas.fa-plane.me-2
+                                    | Ver Destino
+            
+            .text-center.mt-4
+                a.btn-ver-mas.btn-lg(href='/viajes')
+                    i.fas.fa-globe-americas.me-2
+                    | Explorar Todos los Destinos
+        
+        // Sección Nosotros
+        .about-section.py-5.my-5.section-gold
+            .section-header.text-center
+                h2.page-header.mb-4.fade-in Quiénes Somos
+                p.section-subtitle.fade-in Conoce al equipo que hará de tu viaje una experiencia inolvidable
+            
+            .row.mt-5.align-items-center
+                .col-lg-6.mb-5.fade-in.order-lg-2
+                    .about-image-container
+                        img.img-fluid.rounded-lg.main-image(src='/img/inicio_nosotros.jpg', alt="imagen nosotros")
+                        .experience-badge
+                            span.number 15
+                            span.text años de experiencia
+                
+                .col-lg-6.mb-5.fade-in.order-lg-1 
+                    .about-content
+                        h3.about-subtitle.mb-4 Nuestra Misión
+                        p.about-text
+                            | En
+                            span.brand-highlight  VPO 
+                            | nuestra misión es hacer de cada viaje una experiencia inolvidable. Con años de experiencia en el sector del turismo, ofrecemos a nuestros clientes un servicio personalizado y exclusivo, diseñado para satisfacer todas sus necesidades de viaje.
+                        
+                        .features-container.mt-4
+                            .feature-item
+                                .feature-icon
+                                    i.fas.fa-globe-americas
+                                .feature-text
+                                    h4.feature-title Destinos Globales
+                                    p Desde escapadas de fin de semana hasta aventuras exóticas por todo el mundo
+                            
+                            .feature-item
+                                .feature-icon
+                                    i.fas.fa-users
+                                .feature-text
+                                    h4.feature-title Equipo Profesional
+                                    p Nuestro equipo de expertos está aquí para ayudarte a planificar el viaje de tus sueños
+                            
+                            .feature-item
+                                .feature-icon
+                                    i.fas.fa-handshake
+                                .feature-text
+                                    h4.feature-title Alianzas Estratégicas
+                                    p Trabajamos con una amplia red de colaboradores globales
+                        
+                        .cta-container.mt-5.text-center
+                            p.cta-text ¡Viaja con nosotros y descubre un mundo de posibilidades!
+                            a.btn-ver-mas(href='/nosotros')
+                                i.fas.fa-info-circle.me-2
+                                | Conocer más sobre nosotros
